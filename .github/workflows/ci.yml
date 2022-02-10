@@ -49,6 +49,7 @@ jobs:
   
   test:
     runs-on: ubuntu-latest
+    if: ${{ !github.event.pull_request.head.repo.fork }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -62,7 +63,7 @@ jobs:
           https://github.com/bitbar/test-samples/raw/master/apps/android/bitbar-sample-app.apk \
           -o app.apk
 
-      - name: NowSecure
+      - name: NowSecure Scan
         uses: ./
         timeout-minutes: 90
         with:
