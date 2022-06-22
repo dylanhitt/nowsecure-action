@@ -63,3 +63,5 @@ This project is released under the [MIT License](https://github.com/nowsecure/no
 NowSecure Platform, used in this action, has separate [Terms and Conditions](https://www.nowsecure.com/terms-and-conditions/) and requires a valid license to function.
 
 <!--  -->
+<!--  -->
+<!--  -->
