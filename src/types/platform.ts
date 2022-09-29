@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
 
+import type { Deputy } from "./deputy";
+
 export type ApplicationState = "pending" | "processing" | "completed";
 
 /**
@@ -48,6 +50,22 @@ export interface PullReportResponse {
     auto: {
       assessments: Assessment[];
     };
+    my: {
+      user: {
+        organization: {
+          usage: {
+            assessment: {
+              limit: number;
+              total: number;
+              reached: boolean;
+            };
+            baseline: {
+              reached: boolean;
+            };
+          };
+        };
+      };
+    };
   };
 }
 
@@ -57,6 +75,7 @@ export interface Assessment {
   applicationRef: string;
   ref: string;
   report: Report | null;
+  deputy: Deputy | null;
 }
 
 export interface Report {
@@ -64,7 +83,7 @@ export interface Report {
 }
 
 type FindingType = "static" | "dynamic";
-type Severity = "info" | "medium" | "low" | "high";
+type Severity = "info" | "medium" | "low" | "high" | "critical";
 
 export interface Finding {
   kind: FindingType;
